@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smash Celengan Merdeka</title>
+
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:Arial, sans-serif;
+      background:linear-gradient(135deg,#7b0000,#210000);
+      color:white;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:16px;
+    }
+
+    .panel{
+      width:100%;
+      max-width:430px;
+      background:rgba(0,0,0,.35);
+      border:2px solid gold;
+      border-radius:24px;
+      padding:22px 16px;
+      box-shadow:0 0 25px rgba(255,215,0,.35);
+    }
+
+    .logo{
+      width:190px;
+      max-width:80%;
+      margin-bottom:12px;
+    }
+
+    .badge{
+      display:inline-block;
+      background:gold;
+      color:#8b0000;
+      padding:8px 14px;
+      border-radius:30px;
+      font-weight:bold;
+      font-size:13px;
+      margin-bottom:14px;
+    }
+
+    h1{
+      margin:10px 0;
+      font-size:28px;
+      line-height:1.1;
+      color:#fff;
+      text-shadow:0 0 10px red,0 0 18px gold;
+    }
+
+    p{
+      color:#ffecec;
+      font-size:14px;
+    }
+
+    .piggy{
+      width:180px;
+      height:180px;
+      margin:18px auto;
+      border-radius:50%;
+      background:radial-gradient(circle,#ffdddd,#ff3b3b,#990000);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:80px;
+      box-shadow:0 12px 25px rgba(0,0,0,.45);
+    }
+
+    .info{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin:14px 0;
+    }
+
+    .box{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.25);
+      border-radius:14px;
+      padding:12px;
+    }
+
+    .box small{
+      display:block;
+      color:#ffdada;
+      margin-bottom:4px;
+    }
+
+    .box b{
+      color:#fff700;
+      font-size:18px;
+    }
+
+    input{
+      width:100%;
+      padding:15px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(255,255,255,.15);
+      color:white;
+      text-align:center;
+      font-weight:bold;
+      outline:none;
+      margin-top:10px;
+    }
+
+    input::placeholder{
+      color:#ffdada;
+    }
+
+    button{
+      width:100%;
+      padding:15px;
+      margin-top:12px;
+      border:0;
+      border-radius:16px;
+      background:linear-gradient(#fff700,#ffb300);
+      color:#8b0000;
+      font-weight:900;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    button:active{
+      transform:scale(.97);
+    }
+
+    .note{
+      margin-top:14px;
+      font-size:12px;
+      line-height:1.5;
+      color:#ffecec;
+      background:rgba(255,255,255,.08);
+      padding:12px;
+      border-radius:14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="panel">
+
+    <img class="logo" src="https://i.ibb.co/nq6tHWvM/ezgif-83dfdba8ee8405.gif" alt="Logo">
+
+    <div class="badge">🇮🇩 EVENT KEMERDEKAAN 17 AGUSTUS</div>
+
+    <h1>SMASH<br>CELENGAN MERDEKA</h1>
+
+    <p>Pecahkan celengan dan menangkan hadiah spesial!</p>
+
+    <div class="piggy">🐷</div>
+
+    <div class="info">
+      <div class="box">
+        <small>Kesempatan</small>
+        <b>1x</b>
+      </div>
+      <div class="box">
+        <small>Status</small>
+        <b>Aktif</b>
+      </div>
+    </div>
+
+    <input type="text" placeholder="Masukkan ID Member">
+
+    <button>CEK KESEMPATAN</button>
+    <button>MULAI GAME</button>
+
+    <div class="note">
+      🎁 Masukkan ID Member kamu untuk mengecek kesempatan bermain.
+      Hadiah akan muncul setelah celengan berhasil dipecahkan.
+    </div>
+
+  </div>
+
+</body>
+</html>
