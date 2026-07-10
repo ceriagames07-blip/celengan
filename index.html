@@ -3,186 +3,1377 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#780000">
+
   <title>Smash Celengan Merdeka</title>
 
   <style>
-    *{
-      box-sizing:border-box;
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    body{
-      margin:0;
-      min-height:100vh;
-      font-family:Arial, sans-serif;
-      background:linear-gradient(135deg,#7b0000,#210000);
-      color:white;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:16px;
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
     }
 
-    .panel{
-      width:100%;
-      max-width:430px;
-      background:rgba(0,0,0,.35);
-      border:2px solid gold;
-      border-radius:24px;
-      padding:22px 16px;
-      box-shadow:0 0 25px rgba(255,215,0,.35);
+    body {
+      min-height: 100vh;
+      padding: 16px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(255, 215, 0, 0.22),
+          transparent 35%
+        ),
+        linear-gradient(135deg, #850000, #210000);
     }
 
-    .logo{
-      width:190px;
-      max-width:80%;
-      margin-bottom:12px;
+    button,
+    input {
+      font-family: inherit;
     }
 
-    .badge{
-      display:inline-block;
-      background:gold;
-      color:#8b0000;
-      padding:8px 14px;
-      border-radius:30px;
-      font-weight:bold;
-      font-size:13px;
-      margin-bottom:14px;
+    button {
+      -webkit-appearance: none;
+      appearance: none;
     }
 
-    h1{
-      margin:10px 0;
-      font-size:28px;
-      line-height:1.1;
-      color:#fff;
-      text-shadow:0 0 10px red,0 0 18px gold;
+    .app {
+      width: 100%;
+      max-width: 520px;
     }
 
-    p{
-      color:#ffecec;
-      font-size:14px;
+    .panel {
+      width: 100%;
+      padding: 22px 16px;
+
+      border: 2px solid #ffd700;
+      border-radius: 24px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(85, 0, 0, 0.78),
+          rgba(10, 0, 0, 0.94)
+        );
+
+      box-shadow:
+        0 0 30px rgba(255, 215, 0, 0.34),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+      overflow: hidden;
     }
 
-    .piggy{
-      width:180px;
-      height:180px;
-      margin:18px auto;
-      border-radius:50%;
-      background:radial-gradient(circle,#ffdddd,#ff3b3b,#990000);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      font-size:80px;
-      box-shadow:0 12px 25px rgba(0,0,0,.45);
+    .hidden {
+      display: none !important;
     }
 
-    .info{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-      margin:14px 0;
+    .logo {
+      width: 190px;
+      max-width: 78%;
+      margin-bottom: 12px;
     }
 
-    .box{
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.25);
-      border-radius:14px;
-      padding:12px;
+    .badge {
+      display: inline-block;
+      padding: 8px 15px;
+      margin-bottom: 13px;
+
+      border-radius: 50px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #fff56b,
+          #ffc400
+        );
+
+      color: #820000;
+
+      font-size: 12px;
+      font-weight: 900;
+
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.3);
     }
 
-    .box small{
-      display:block;
-      color:#ffdada;
-      margin-bottom:4px;
+    h1 {
+      margin: 8px 0;
+
+      font-size: 29px;
+      line-height: 1.08;
+
+      color: #ffffff;
+
+      text-shadow:
+        0 0 10px #ff0000,
+        0 0 18px #ffd700;
     }
 
-    .box b{
-      color:#fff700;
-      font-size:18px;
+    h2 {
+      margin: 7px 0 6px;
+
+      font-size: 24px;
+      color: #ffffff;
+
+      text-shadow:
+        0 0 12px rgba(255, 215, 0, 0.7);
     }
 
-    input{
-      width:100%;
-      padding:15px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.35);
-      background:rgba(255,255,255,.15);
-      color:white;
-      text-align:center;
-      font-weight:bold;
-      outline:none;
-      margin-top:10px;
+    .subtitle {
+      max-width: 390px;
+      margin: 8px auto 15px;
+
+      color: #ffe6e6;
+      font-size: 14px;
+      line-height: 1.5;
     }
 
-    input::placeholder{
-      color:#ffdada;
+    .main-piggy {
+      width: 175px;
+      height: 175px;
+      margin: 17px auto;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 35% 25%,
+          #ffffff,
+          #ffbcbc 20%,
+          #ff4545 56%,
+          #940000 100%
+        );
+
+      font-size: 78px;
+
+      box-shadow:
+        0 14px 24px rgba(0, 0, 0, 0.5),
+        inset 0 0 22px rgba(255, 255, 255, 0.4);
     }
 
-    button{
-      width:100%;
-      padding:15px;
-      margin-top:12px;
-      border:0;
-      border-radius:16px;
-      background:linear-gradient(#fff700,#ffb300);
-      color:#8b0000;
-      font-weight:900;
-      font-size:16px;
-      cursor:pointer;
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+
+      margin: 14px 0;
     }
 
-    button:active{
-      transform:scale(.97);
+    .info-box {
+      padding: 12px;
+
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 14px;
+
+      background: rgba(255, 255, 255, 0.1);
     }
 
-    .note{
-      margin-top:14px;
-      font-size:12px;
-      line-height:1.5;
-      color:#ffecec;
-      background:rgba(255,255,255,.08);
-      padding:12px;
-      border-radius:14px;
+    .info-box small {
+      display: block;
+      margin-bottom: 5px;
+
+      color: #ffdede;
+      font-size: 12px;
+    }
+
+    .info-box b {
+      color: #fff700;
+      font-size: 18px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 14px;
+      outline: none;
+
+      background: rgba(255, 255, 255, 0.13);
+      color: #ffffff;
+
+      text-align: center;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    input:focus {
+      border-color: #ffd700;
+
+      box-shadow:
+        0 0 12px rgba(255, 215, 0, 0.35);
+    }
+
+    input::placeholder {
+      color: #ffcfcf;
+    }
+
+    .main-button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 12px;
+
+      border: 0;
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #fff700,
+          #ffad00
+        );
+
+      color: #810000;
+
+      font-size: 16px;
+      font-weight: 900;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 7px 0 #a75b00,
+        0 10px 18px rgba(0, 0, 0, 0.3);
+
+      transition:
+        transform 0.16s ease,
+        filter 0.16s ease;
+    }
+
+    .main-button:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px);
+    }
+
+    .main-button:active {
+      transform: translateY(4px);
+
+      box-shadow:
+        0 3px 0 #a75b00,
+        0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .main-button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .secondary-button {
+      width: 100%;
+      padding: 13px;
+      margin-top: 13px;
+
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 14px;
+
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .secondary-button:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .note,
+    .message-box {
+      margin-top: 15px;
+      padding: 12px;
+
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+
+      background: rgba(255, 255, 255, 0.07);
+      color: #ffecec;
+
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .message-box {
+      display: none;
+
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .message-box.show {
+      display: block;
+    }
+
+    .game-header {
+      margin-bottom: 13px;
+    }
+
+    .member-display {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+
+      padding: 7px 12px;
+      margin-top: 7px;
+
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 30px;
+
+      background: rgba(255, 255, 255, 0.09);
+      color: #ffe6e6;
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .instruction {
+      padding: 11px;
+      margin: 12px 0 15px;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255, 215, 0, 0.13),
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 215, 0, 0.13)
+        );
+
+      color: #fff8c8;
+
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .piggy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .piggy-card {
+      position: relative;
+
+      min-height: 175px;
+      padding: 11px;
+
+      border: 1px solid rgba(255, 215, 0, 0.42);
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.13),
+          rgba(255, 255, 255, 0.04)
+        );
+
+      cursor: pointer;
+      overflow: hidden;
+
+      box-shadow:
+        0 9px 16px rgba(0, 0, 0, 0.28);
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .piggy-card:last-child {
+      grid-column: 1 / -1;
+
+      width: calc(50% - 6px);
+      justify-self: center;
+    }
+
+    .piggy-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      border-color: #fff700;
+
+      box-shadow:
+        0 12px 22px rgba(0, 0, 0, 0.36),
+        0 0 16px rgba(255, 215, 0, 0.25);
+    }
+
+    .piggy-card.disabled {
+      opacity: 0.45;
+      filter: grayscale(0.3);
+
+      pointer-events: none;
+    }
+
+    .piggy-card.selected {
+      border-color: #fff700;
+
+      box-shadow:
+        0 0 0 3px rgba(255, 247, 0, 0.18),
+        0 0 25px rgba(255, 215, 0, 0.55);
+    }
+
+    .piggy-number {
+      position: absolute;
+      top: 9px;
+      left: 9px;
+      z-index: 2;
+
+      width: 30px;
+      height: 30px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          180deg,
+          #fff46a,
+          #ffb700
+        );
+
+      color: #800000;
+
+      font-size: 13px;
+      font-weight: 900;
+
+      box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .piggy-image-wrap {
+      height: 120px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .piggy-image {
+      width: 115px;
+      height: 115px;
+
+      object-fit: contain;
+
+      filter:
+        drop-shadow(
+          0 10px 8px rgba(0, 0, 0, 0.35)
+        );
+
+      transition: transform 0.2s ease;
+    }
+
+    .piggy-card:hover .piggy-image {
+      transform: scale(1.06);
+    }
+
+    .piggy-name {
+      margin-top: 2px;
+
+      color: #fff5bd;
+
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .placeholder-pig {
+      width: 110px;
+      height: 110px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 35% 25%,
+          #ffffff,
+          #ffcccc 20%,
+          #ff4d4d 58%,
+          #8e0000 100%
+        );
+
+      font-size: 55px;
+
+      box-shadow:
+        0 10px 18px rgba(0, 0, 0, 0.4),
+        inset 0 0 18px rgba(255, 255, 255, 0.35);
+    }
+
+    .smashing {
+      animation: smashAnimation 0.75s ease;
+    }
+
+    @keyframes smashAnimation {
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+
+      15% {
+        transform: rotate(-10deg) scale(0.93);
+      }
+
+      30% {
+        transform: rotate(10deg) scale(1.08);
+      }
+
+      45% {
+        transform: rotate(-8deg) scale(0.9);
+      }
+
+      60% {
+        transform: rotate(8deg) scale(1.1);
+      }
+
+      75% {
+        transform: rotate(-4deg) scale(0.96);
+      }
+
+      100% {
+        transform: rotate(0deg) scale(1);
+      }
+    }
+
+    .game-status {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+
+      margin-top: 15px;
+    }
+
+    .status-item {
+      padding: 10px;
+
+      border-radius: 13px;
+
+      background:
+        rgba(255, 255, 255, 0.08);
+
+      color: #ffdede;
+
+      font-size: 12px;
+    }
+
+    .status-item b {
+      display: block;
+      margin-top: 4px;
+
+      color: #fff700;
+      font-size: 14px;
+    }
+
+    .result-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+
+      display: none;
+      justify-content: center;
+      align-items: center;
+
+      padding: 18px;
+
+      background: rgba(0, 0, 0, 0.82);
+
+      backdrop-filter: blur(8px);
+    }
+
+    .result-overlay.show {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .result-card {
+      width: 100%;
+      max-width: 390px;
+
+      padding: 25px 18px;
+
+      border: 2px solid #ffd700;
+      border-radius: 24px;
+
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(255, 215, 0, 0.25),
+          transparent 42%
+        ),
+        linear-gradient(
+          160deg,
+          #850000,
+          #240000
+        );
+
+      box-shadow:
+        0 0 40px rgba(255, 215, 0, 0.6),
+        0 15px 35px rgba(0, 0, 0, 0.55);
+
+      animation: resultPop 0.45s ease;
+    }
+
+    @keyframes resultPop {
+      from {
+        opacity: 0;
+        transform: scale(0.7);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .result-icon {
+      margin-bottom: 5px;
+      font-size: 75px;
+    }
+
+    .result-card h3 {
+      margin: 6px 0;
+
+      color: #fff700;
+      font-size: 27px;
+    }
+
+    .prize-label {
+      color: #ffdede;
+      font-size: 13px;
+    }
+
+    .prize-value {
+      margin: 10px 0;
+
+      color: #ffffff;
+
+      font-size: 30px;
+      font-weight: 900;
+
+      text-shadow:
+        0 0 12px #ffd700,
+        0 0 20px #ff0000;
+    }
+
+    .result-description {
+      color: #ffeaea;
+
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 390px) {
+      .panel {
+        padding: 19px 12px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      h2 {
+        font-size: 21px;
+      }
+
+      .piggy-card {
+        min-height: 160px;
+      }
+
+      .piggy-image-wrap {
+        height: 105px;
+      }
+
+      .piggy-image,
+      .placeholder-pig {
+        width: 98px;
+        height: 98px;
+      }
+
+      .placeholder-pig {
+        font-size: 48px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="panel">
+  <div class="app">
 
-    <img class="logo" src="https://i.ibb.co/nq6tHWvM/ezgif-83dfdba8ee8405.gif" alt="Logo">
+    <!-- PANEL AWAL -->
+    <section
+      class="panel"
+      id="startPanel"
+    >
 
-    <div class="badge">🇮🇩 EVENT KEMERDEKAAN 17 AGUSTUS</div>
+      <img
+        class="logo"
+        src="https://i.ibb.co/nq6tHWvM/ezgif-83dfdba8ee8405.gif"
+        alt="Logo Ceriabet"
+        onerror="this.style.display='none'"
+      >
 
-    <h1>SMASH<br>CELENGAN MERDEKA</h1>
-
-    <p>Pecahkan celengan dan menangkan hadiah spesial!</p>
-
-    <div class="piggy">🐷</div>
-
-    <div class="info">
-      <div class="box">
-        <small>Kesempatan</small>
-        <b>1x</b>
+      <div class="badge">
+        🇮🇩 EVENT KEMERDEKAAN 17 AGUSTUS
       </div>
-      <div class="box">
-        <small>Status</small>
-        <b>Aktif</b>
+
+      <h1>
+        SMASH<br>
+        CELENGAN MERDEKA
+      </h1>
+
+      <p class="subtitle">
+        Pecahkan celengan dan menangkan hadiah spesial!
+      </p>
+
+      <div class="main-piggy">
+        🐷
       </div>
-    </div>
 
-    <input type="text" placeholder="Masukkan ID Member">
+      <div class="info-grid">
 
-    <button>CEK KESEMPATAN</button>
-    <button>MULAI GAME</button>
+        <div class="info-box">
+          <small>Kesempatan</small>
+          <b id="chanceText">0x</b>
+        </div>
 
-    <div class="note">
-      🎁 Masukkan ID Member kamu untuk mengecek kesempatan bermain.
-      Hadiah akan muncul setelah celengan berhasil dipecahkan.
+        <div class="info-box">
+          <small>Status</small>
+          <b id="statusText">Belum Dicek</b>
+        </div>
+
+      </div>
+
+      <input
+        id="memberId"
+        type="text"
+        placeholder="Masukkan ID Member"
+        autocomplete="off"
+      >
+
+      <button
+        class="main-button"
+        id="checkButton"
+        type="button"
+      >
+        CEK KESEMPATAN
+      </button>
+
+      <button
+        class="main-button"
+        id="startButton"
+        type="button"
+        disabled
+      >
+        MULAI GAME
+      </button>
+
+      <div
+        class="message-box"
+        id="startMessage"
+      ></div>
+
+      <div class="note">
+        🎁 Masukkan ID Member untuk mengecek kesempatan bermain.
+        Setelah tombol mulai diklik, silakan pilih satu dari lima celengan.
+      </div>
+
+    </section>
+
+
+    <!-- PANEL PERMAINAN -->
+    <section
+      class="panel hidden"
+      id="gamePanel"
+    >
+
+      <div class="game-header">
+
+        <img
+          class="logo"
+          src="https://i.ibb.co/nq6tHWvM/ezgif-83dfdba8ee8405.gif"
+          alt="Logo Ceriabet"
+          onerror="this.style.display='none'"
+        >
+
+        <div class="badge">
+          🎁 PILIH CELENGAN KEBERUNTUNGANMU
+        </div>
+
+        <h2>
+          SMASH CELENGAN
+        </h2>
+
+        <div class="member-display">
+          ID MEMBER:
+          <span id="gameMemberId">-</span>
+        </div>
+
+      </div>
+
+      <div class="instruction">
+        Pilih satu dari lima celengan di bawah ini.
+        Celengan yang telah dipilih tidak dapat diganti.
+      </div>
+
+      <div
+        class="piggy-grid"
+        id="piggyGrid"
+      ></div>
+
+      <div class="game-status">
+
+        <div class="status-item">
+          Kesempatan
+          <b id="gameChance">1x</b>
+        </div>
+
+        <div class="status-item">
+          Status Game
+          <b id="gameStatus">Pilih Celengan</b>
+        </div>
+
+      </div>
+
+      <button
+        class="secondary-button"
+        id="backButton"
+        type="button"
+      >
+        KEMBALI
+      </button>
+
+    </section>
+
+  </div>
+
+
+  <!-- POPUP HASIL -->
+  <div
+    class="result-overlay"
+    id="resultOverlay"
+  >
+
+    <div class="result-card">
+
+      <div class="result-icon">
+        🎉
+      </div>
+
+      <h3>
+        SELAMAT!
+      </h3>
+
+      <div class="prize-label">
+        Kamu mendapatkan:
+      </div>
+
+      <div
+        class="prize-value"
+        id="prizeValue"
+      >
+        BONUS MERDEKA
+      </div>
+
+      <div
+        class="result-description"
+        id="resultDescription"
+      >
+        Hadiah akan disesuaikan dengan data pada spreadsheet.
+      </div>
+
+      <button
+        class="main-button"
+        id="finishButton"
+        type="button"
+      >
+        SELESAI
+      </button>
+
     </div>
 
   </div>
+
+
+  <script>
+    /*
+    =====================================================
+    LINK GAMBAR CELENGAN
+    =====================================================
+
+    Ganti link kosong di bawah ini dengan lima link gambar
+    celengan milik Anda.
+
+    Contoh:
+    "https://domainanda.com/celengan-1.png"
+    */
+
+    const PIG_IMAGES = [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ];
+
+
+    /*
+    =====================================================
+    HADIAH DEMO
+    =====================================================
+
+    Data ini hanya untuk tampilan sementara.
+
+    Nantinya bagian hadiah dapat diganti dengan data dari:
+    - Google Spreadsheet
+    - Google Apps Script
+    - API
+    */
+
+    const DEMO_PRIZES = [
+      "BONUS Rp5.000",
+      "BONUS Rp10.000",
+      "BONUS Rp15.000",
+      "BONUS Rp20.000",
+      "BONUS Rp50.000"
+    ];
+
+
+    /*
+    =====================================================
+    AMBIL ELEMEN HTML
+    =====================================================
+    */
+
+    const startPanel =
+      document.getElementById("startPanel");
+
+    const gamePanel =
+      document.getElementById("gamePanel");
+
+    const memberInput =
+      document.getElementById("memberId");
+
+    const checkButton =
+      document.getElementById("checkButton");
+
+    const startButton =
+      document.getElementById("startButton");
+
+    const chanceText =
+      document.getElementById("chanceText");
+
+    const statusText =
+      document.getElementById("statusText");
+
+    const startMessage =
+      document.getElementById("startMessage");
+
+    const gameMemberId =
+      document.getElementById("gameMemberId");
+
+    const piggyGrid =
+      document.getElementById("piggyGrid");
+
+    const gameChance =
+      document.getElementById("gameChance");
+
+    const gameStatus =
+      document.getElementById("gameStatus");
+
+    const backButton =
+      document.getElementById("backButton");
+
+    const resultOverlay =
+      document.getElementById("resultOverlay");
+
+    const prizeValue =
+      document.getElementById("prizeValue");
+
+    const resultDescription =
+      document.getElementById("resultDescription");
+
+    const finishButton =
+      document.getElementById("finishButton");
+
+
+    /*
+    =====================================================
+    STATUS GAME
+    =====================================================
+    */
+
+    let currentMemberId = "";
+    let eligible = false;
+    let hasPlayed = false;
+    let selectedPiggy = null;
+
+
+    /*
+    =====================================================
+    PESAN PANEL AWAL
+    =====================================================
+    */
+
+    function showStartMessage(text) {
+      startMessage.textContent = text;
+      startMessage.classList.add("show");
+    }
+
+
+    /*
+    =====================================================
+    BUAT 5 CELENGAN
+    =====================================================
+    */
+
+    function createPiggyCards() {
+      piggyGrid.innerHTML = "";
+
+      PIG_IMAGES.forEach(function(imageUrl, index) {
+
+        const card =
+          document.createElement("div");
+
+        card.className = "piggy-card";
+        card.dataset.index = index;
+
+
+        const number =
+          document.createElement("div");
+
+        number.className = "piggy-number";
+        number.textContent = index + 1;
+
+
+        const imageWrap =
+          document.createElement("div");
+
+        imageWrap.className = "piggy-image-wrap";
+
+
+        if (
+          imageUrl &&
+          imageUrl.trim() !== ""
+        ) {
+
+          const image =
+            document.createElement("img");
+
+          image.className = "piggy-image";
+          image.src = imageUrl;
+          image.alt = "Celengan " + (index + 1);
+
+          image.onerror = function() {
+            imageWrap.innerHTML =
+              '<div class="placeholder-pig">🐷</div>';
+          };
+
+          imageWrap.appendChild(image);
+
+        } else {
+
+          const placeholder =
+            document.createElement("div");
+
+          placeholder.className =
+            "placeholder-pig";
+
+          placeholder.textContent =
+            "🐷";
+
+          imageWrap.appendChild(placeholder);
+        }
+
+
+        const name =
+          document.createElement("div");
+
+        name.className = "piggy-name";
+
+        name.textContent =
+          "CELENGAN " + (index + 1);
+
+
+        card.appendChild(number);
+        card.appendChild(imageWrap);
+        card.appendChild(name);
+
+
+        card.addEventListener(
+          "click",
+          function() {
+            selectPiggy(index, card);
+          }
+        );
+
+
+        piggyGrid.appendChild(card);
+      });
+    }
+
+
+    /*
+    =====================================================
+    PILIH CELENGAN
+    =====================================================
+    */
+
+    function selectPiggy(index, selectedCard) {
+      if (hasPlayed) {
+        return;
+      }
+
+      hasPlayed = true;
+      selectedPiggy = index;
+
+      gameChance.textContent = "0x";
+      gameStatus.textContent = "Membuka Hadiah";
+
+
+      const allCards =
+        document.querySelectorAll(".piggy-card");
+
+
+      allCards.forEach(function(card) {
+        if (card !== selectedCard) {
+          card.classList.add("disabled");
+        }
+      });
+
+
+      selectedCard.classList.add(
+        "selected",
+        "smashing"
+      );
+
+
+      setTimeout(function() {
+
+        gameStatus.textContent = "Selesai";
+
+        const prize =
+          DEMO_PRIZES[index];
+
+        prizeValue.textContent =
+          prize;
+
+        resultDescription.textContent =
+          "Hadiah dari Celengan " +
+          (index + 1) +
+          " untuk ID Member " +
+          currentMemberId +
+          ". Data hadiah saat ini masih menggunakan tampilan demo.";
+
+        resultOverlay.classList.add("show");
+
+      }, 900);
+    }
+
+
+    /*
+    =====================================================
+    CEK KESEMPATAN
+    =====================================================
+
+    Saat ini semua ID yang diisi akan mendapatkan 1 kesempatan.
+
+    Nantinya bagian ini dapat diganti dengan fetch menuju
+    Google Apps Script.
+    */
+
+    checkButton.addEventListener(
+      "click",
+      function() {
+
+        const memberId =
+          memberInput.value.trim();
+
+
+        if (!memberId) {
+
+          eligible = false;
+
+          chanceText.textContent = "0x";
+          statusText.textContent = "ID Kosong";
+
+          startButton.disabled = true;
+
+          showStartMessage(
+            "⚠️ Silakan masukkan ID Member terlebih dahulu."
+          );
+
+          memberInput.focus();
+
+          return;
+        }
+
+
+        currentMemberId = memberId;
+        eligible = true;
+        hasPlayed = false;
+        selectedPiggy = null;
+
+        chanceText.textContent = "1x";
+        statusText.textContent = "Aktif";
+
+        startButton.disabled = false;
+
+        showStartMessage(
+          "✅ ID " +
+          memberId +
+          " memiliki 1 kesempatan bermain."
+        );
+      }
+    );
+
+
+    /*
+    =====================================================
+    MULAI GAME
+    =====================================================
+    */
+
+    startButton.addEventListener(
+      "click",
+      function() {
+
+        if (!eligible) {
+          return;
+        }
+
+        currentMemberId =
+          memberInput.value.trim();
+
+        gameMemberId.textContent =
+          currentMemberId;
+
+        gameChance.textContent =
+          "1x";
+
+        gameStatus.textContent =
+          "Pilih Celengan";
+
+        hasPlayed = false;
+        selectedPiggy = null;
+
+        createPiggyCards();
+
+        startPanel.classList.add("hidden");
+        gamePanel.classList.remove("hidden");
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    );
+
+
+    /*
+    =====================================================
+    TOMBOL KEMBALI
+    =====================================================
+    */
+
+    backButton.addEventListener(
+      "click",
+      function() {
+
+        if (hasPlayed) {
+
+          alert(
+            "Celengan sudah dipilih. Permainan tidak dapat dibatalkan."
+          );
+
+          return;
+        }
+
+        gamePanel.classList.add("hidden");
+        startPanel.classList.remove("hidden");
+      }
+    );
+
+
+    /*
+    =====================================================
+    TOMBOL SELESAI
+    =====================================================
+    */
+
+    finishButton.addEventListener(
+      "click",
+      function() {
+
+        resultOverlay.classList.remove("show");
+
+        gameStatus.textContent =
+          "Hadiah Diterima";
+
+        backButton.textContent =
+          "KEMBALI KE HALAMAN AWAL";
+
+        backButton.onclick = function() {
+          location.reload();
+        };
+      }
+    );
+
+
+    /*
+    =====================================================
+    ENTER UNTUK CEK ID
+    =====================================================
+    */
+
+    memberInput.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Enter") {
+          checkButton.click();
+        }
+      }
+    );
+
+
+    /*
+    =====================================================
+    BUAT CELENGAN PERTAMA KALI
+    =====================================================
+    */
+
+    createPiggyCards();
+  </script>
 
 </body>
 </html>
